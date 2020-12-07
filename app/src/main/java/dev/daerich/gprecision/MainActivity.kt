@@ -1,4 +1,5 @@
 package dev.daerich.gprecision
+
 /* ------------------------------------------
 			COPYRIGHT © DAERICH 2020
 ALL RIGHTS RESERVED EXCEPT OTHERWISE STATED IN COPYRIGHT.TXT
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
 
     private lateinit var requestPermissionLauncher : ActivityResultLauncher<String>
+    private lateinit var gpsLocationListener : LocationLocalManager;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,17 +36,21 @@ class MainActivity : AppCompatActivity() {
         when {
             checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED -> {
                 Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
-                LocationListener(this).startMeasure(R.id.GPSfront)
+                gpsLocationListener = LocationLocalManager(this).also { it.startMeasure(R.id.GPSfront) }
+               // LocationLocalManager(this).startMeasure(R.id.GPSfront)
             }
             shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) -> {
                 Toast.makeText(this, "This permission is required to run this app efficiently! Please grant it!", Toast.LENGTH_LONG).show()
             }
             else -> {
-                // You can directly ask for the permission.
-                // The registered ActivityResultCallback gets the result of this request.
                 requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
             }
         }
         }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        gpsLocationListener?.stop()
+    }
 
 }
