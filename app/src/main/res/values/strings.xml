@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">gprecision</string>
-    <string name="_0">0</string>
+    <string name="_abtbtn">About</string>
+    <string name="abttxt">This app was developed by DaErich</string>
     <string name="currentspeed">Speed</string>
     <string name="km_h">km/h</string>
     <string name="no_speed">no speed</string>
