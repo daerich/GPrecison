@@ -15,9 +15,11 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode
 
 object GPSAPPGLOBALS{
-    val VERSION = "v. 0.0.6"
+    val VERSION = "V. 0.0.6"
 }
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setDefaultNightMode(MODE_NIGHT_NO)
     }
 
     override fun onResume() {
