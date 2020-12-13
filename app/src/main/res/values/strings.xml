@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">gprecision</string>
     <string name="_abtbtn">About</string>
-    <string name="abttxt">This app was developed by DaErich</string>
+    <string name="abttxt">This app has been developed by DaErich</string>
     <string name="currentspeed">Speed</string>
     <string name="km_h">km/h</string>
     <string name="no_speed">no speed</string>
+    <string name="aboutitem">About</string>
+    <string name="uselessbtn"></string>
 </resources>
